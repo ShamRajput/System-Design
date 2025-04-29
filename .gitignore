@@ -1,0 +1,17 @@
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore build directory
+build/
+
+# Ignore common build artifacts
+*.o
+*.out
+*.exe
+*.gcm
+*.gch
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
