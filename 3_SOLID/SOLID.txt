@@ -1,0 +1,9 @@
+Goal of SOLID principles are to make software/system more maintainable,understandable and flexible 
+using structred approach.
+
+
+S => Single Responsibilty Principal
+O => Open/Closed Principal
+L => Liskov Substitution Principal
+I => Interface Seggreation Principal
+D => Depedency Inversion Principal
