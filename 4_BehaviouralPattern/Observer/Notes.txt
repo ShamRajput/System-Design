@@ -1,0 +1,9 @@
+# It basically avoids tight coupling between Source/Subject and Receivers/Subscibers.
+# It prevents Open closed principle Voilation.
+# Use raw Pointer and management of raw pointer handled outside
+
+# if you use unique_ptr while detaching it gives 
+issue to ownership is moved 
+# so main has invalid unique_ptr
+# USe shared_ptr to avoid the issue.
+
