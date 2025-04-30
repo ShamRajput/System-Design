@@ -1,0 +1,7 @@
+@startuml
+class Card {
+    -number: size_t
+    -name: string
+    +printInfo(): void
+}
+@enduml

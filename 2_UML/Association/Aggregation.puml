@@ -1,0 +1,16 @@
+@startuml
+class Professor {
+    - name: string
+    + getName(): string
+}
+
+class Department {
+    - professors: Professor[]
+    + getProfessors(): Professor[]
+}
+
+Department o--> Professor : contains
+@enduml
+
+
+

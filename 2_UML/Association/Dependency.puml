@@ -1,0 +1,17 @@
+@startuml
+class Document {
+    - title: string
+    + content: string
+    + getTitle(): string
+    + getContent(): string
+}
+
+class Printer {
+    + print(document: Document): void   
+}
+
+Printer ..> Document : <<uses>>
+
+
+
+@enduml

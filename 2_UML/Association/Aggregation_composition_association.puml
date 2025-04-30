@@ -1,0 +1,13 @@
+@startuml
+
+note "Association: It is a relationship between\n two classes where one class uses or interacts with another class." as N1
+note "Aggregation: It is a special type of association\n where one class is a part of another class, but both can exist independently." as N2
+note "Composition: It is a strong type of aggregation\n where one class is a part of another class, and the part cannot exist independently." as N3
+
+note "Association:'-->'" as N4
+note "Aggregation:'*-->'" as N5
+note "Composition:'0-->'" as N6
+note "Dependency: '..>'" as N7
+note "Inheritance: '<|--'" as N8
+
+@enduml
