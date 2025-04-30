@@ -1,0 +1,26 @@
+@startuml
+    class TextEditor {
+        -mContent: String        
+        +setText(text: String)
+        +getText(): String
+        +save(): TextEditorMemento
+        +restore(memento: TextEditorMemento
+    }
+    class TextEditorMemento {
+        -mContent: String
+        +getContent(): String
+    }
+    
+    class History {
+        -mMementos: stack<TextEditorMemento>
+        +save(editor: TextEditor) :void  
+        +restore(editor: TextEditor)  :void
+        +getCount(): int
+    }
+    
+    TextEditor --> TextEditorMemento : creates
+    TextEditor --> History : uses
+    TextEditorMemento --> TextEditor : restores
+    History --> TextEditorMemento : stores
+    TextEditor --> History : saves
+@enduml
