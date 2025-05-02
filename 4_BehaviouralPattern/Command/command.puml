@@ -1,0 +1,45 @@
+@startuml
+
+
+class TextEditor {
+    - mBold: Boolean
+    - mItalic: Boolean
+    +TextEditor()
+    +setBold(bold: Boolean)
+    +setItalic(italic: Boolean)
+}    
+
+class ICommand {
+    +execute()
+}
+class BoldCommand  {
+    - mTextEditorRef: TextEditor
+    +execute()
+}
+class ItalicCommand  {
+    - mTextEditorRef: TextEditor
+    +execute()
+}
+
+ICommand <|-- BoldCommand : action
+ICommand <|-- ItalicCommand : action
+
+BoldCommand --> TextEditor : <holds> 
+ItalicCommand --> TextEditor : <holds>
+
+
+class TextEditorInvoker {
+    - mCommand: Command 
+    +setCommand(command: Command)
+    +run(): void
+}
+TextEditorInvoker --> ICommand : <holds>
+
+class Client {
+    - mTextEditorInvoker: TextEditorInvoker
+    +main()
+}
+
+
+
+@enduml

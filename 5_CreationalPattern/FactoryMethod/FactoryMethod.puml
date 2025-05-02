@@ -1,0 +1,40 @@
+@startuml 
+
+class IShape {
+    + draw(): void
+}
+note right of IShape
+    - pure virtual draw() =0 method
+end note
+
+class Circle {
+    + draw(): void
+}
+class Square {
+    + draw(): void
+}
+class Rectangle {
+    + draw(): void
+} 
+
+IShape <|-- Circle : implement
+IShape <|-- Square : implement
+IShape <|-- Rectangle : implement
+note right of Circle
+    - draw() method implementation
+end note
+
+class ShapeFactory {
+    + createShape(type: enum class): IShape
+}
+note right of ShapeFactory
+    - createShape() method
+    - Factory Method pattern
+    - based on the type of It returns the appropriate shape
+    - It returns a pointer to the base class IShape
+    - But it voilates the Open/Closed Principle
+end note
+
+
+
+@enduml

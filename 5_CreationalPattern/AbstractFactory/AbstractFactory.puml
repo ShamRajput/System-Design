@@ -1,0 +1,59 @@
+@startuml
+
+class ICarFactory {
+    +createCar(): ICar
+    +createSpecification(): ICarSpecification
+}
+
+class EuropeCarFactory {
+    +createCar(): ICar
+    +createSpecification(): ICarSpecification
+}
+class USCarFactory {
+    +createCar(): ICar
+    +createSpecification(): ICarSpecification
+}
+
+ICarFactory <|-- EuropeCarFactory
+ICarFactory <|-- USCarFactory
+
+class ICar {
+    +assemeble(): void
+
+}
+class Sudan {
+    +assemeble(): void
+}
+
+class Hatchback {
+    +assemeble(): void
+}
+
+ICar <|-- Sudan
+ICar <|-- Hatchback
+
+class ICarSpecification {
+    +getSpecification(): string
+}
+class EuropeCarSpecification {
+    +getSpecification(): string
+}
+class USCarSpecification {
+    +getSpecification(): string
+}
+
+ICarSpecification <|-- EuropeCarSpecification
+ICarSpecification <|-- USCarSpecification
+
+note right of ICar
+    CarFactory USFactory = new USCarFactory();
+    Car USCar = USFactory.createCar();
+    CarSpecification USSpec = USFactory.createSpecification();
+
+    USCar.assemble();
+    USSpec.display();
+end note
+
+
+
+@enduml

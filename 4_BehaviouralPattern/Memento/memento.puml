@@ -7,7 +7,7 @@
         +restore(memento: TextEditorMemento
     }
     class TextEditorMemento {
-        -mContent: String
+        -mContent: const String
         +getContent(): String
     }
     
@@ -15,12 +15,11 @@
         -mMementos: stack<TextEditorMemento>
         +save(editor: TextEditor) :void  
         +restore(editor: TextEditor)  :void
-        +getCount(): int
+       
     }
     
-    TextEditor --> TextEditorMemento : creates
-    TextEditor --> History : uses
-    TextEditorMemento --> TextEditor : restores
-    History --> TextEditorMemento : stores
-    TextEditor --> History : saves
+
+    TextEditor ..> History : uses
+    History "1" o--> "*" TextEditorMemento : stores
+    
 @enduml

@@ -1,0 +1,56 @@
+@startuml
+
+Class IShape {
+    + draw(): void
+}
+note right of IShape
+    - pure virtual draw() =0 method
+end note
+class Circle {
+    + draw(): void
+}
+class Square {
+    + draw(): void
+}
+class Rectangle {
+    + draw(): void
+}
+IShape <|-- Circle : implement
+IShape <|-- Square : implement
+IShape <|-- Rectangle : implement
+note right of Circle
+    - draw() method implementation
+end note
+
+class IShapeFactory {
+    + createShape(): IShape
+}
+note right of IShapeFactory
+    - pure virtual createShape() =0 method
+end note
+
+class CircleFactory {
+    + createShape(): IShape
+}
+class SquareFactory {
+    + createShape(): IShape
+}
+class RectangleFactory {
+    + createShape(): IShape
+}
+
+IShapeFactory <|-- CircleFactory : implement
+IShapeFactory <|-- SquareFactory : implement
+IShapeFactory <|-- RectangleFactory : implement
+note right of CircleFactory
+    - createShape() method implementation
+end note
+note right of SquareFactory
+    - createShape() method implementation
+end note
+note right of RectangleFactory
+    - createShape() method implementation
+end note
+
+
+@enduml

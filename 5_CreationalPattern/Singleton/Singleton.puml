@@ -1,0 +1,24 @@
+@startuml
+
+class Singleton {
+    - mInstance: Singleton
+    + Static getInstance(): Singleton&
+    + Static destroyInstance(): void
+    - Singleton()
+}
+note right of Singleton
+    - Private constructor
+    - Private copy constructor delete
+    - Private assignment operator delete
+end note
+note right of Singleton
+    - Static instance
+    - Static getInstance() method
+    - Static destroyInstance() method
+end note
+note right of Singleton
+    - Thread-safe singleton call_once,once_flag
+    - initialization "Scott Meyers C++11 feature"
+end note
+
+@enduml

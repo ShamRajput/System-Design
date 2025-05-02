@@ -1,0 +1,43 @@
+@startuml
+
+WeatherStation o--> IObserver : maitain_observerlist
+Class IObserver {
+    +update()
+}
+Class MobileScreen {
+    +update()
+}
+Class LaptopScreen {
+    +update()
+}
+class PortableScreen {
+    +update()
+}
+
+IObserver <|-- MobileScreen
+IObserver <|-- LaptopScreen
+IObserver <|-- PortableScreen
+
+
+Class ISubject {
+    +attach(Observer*)
+    +detach(Observer*)
+    +notify()
+}
+Class WeatherStation {
+    - observers: List<Observer>
+    - temperature: float
+    +WeatherStation()
+    +attach(Observer*)
+    +detach(Observer*)
+    +notify()
+    +setTemperature(float)
+    +getTemperature()
+}
+
+WeatherStation <|-- ISubject :Inherits
+
+
+
+
+@enduml

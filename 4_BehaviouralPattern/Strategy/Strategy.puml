@@ -1,0 +1,37 @@
+@startuml
+
+class PaymentMethod {
+    +pay()
+}
+class CreditCard {
+    +pay()
+}
+class DebitCard {
+    +pay()
+}
+class Cash {
+    +pay()
+}
+class PayPal {
+    +pay()
+}
+
+PaymentMethod <|-- CreditCard
+PaymentMethod <|-- DebitCard
+PaymentMethod <|-- Cash
+PaymentMethod <|-- PayPal
+
+class PaymentProcessor {
+    -paymentMethod: PaymentMethod
+    +setPaymentMethod(paymentMethod: PaymentMethod)
+    +processPayment()
+}
+PaymentProcessor o--> PaymentMethod
+
+' class User {
+'     +makePayment()
+' }
+' User --> PaymentProcessor
+' User --> PaymentMethod
+
+@enduml
