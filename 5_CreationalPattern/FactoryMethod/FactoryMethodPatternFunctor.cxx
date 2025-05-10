@@ -34,6 +34,8 @@ public:
     IShapeFactory& operator=(const IShapeFactory&) = delete;
     IShapeFactory(IShapeFactory&&) = delete;
     IShapeFactory& operator=(IShapeFactory&&) = delete;
+    IShapeFactory() = delete;
+    ~IShapeFactory() = default;
     static void registerFactory(const std::function<std::unique_ptr<IShape>()>& factory) {
         mCreateShape = factory;
     }
@@ -47,11 +49,10 @@ public:
 
 int main() {
     
-    auto c = []()-> std::unique_ptr<IShape> {
-        return std::make_unique<Circle>();
-    };
 
-    IShapeFactory::registerFactory(c);
+    IShapeFactory::registerFactory([]()-> std::unique_ptr<IShape> {
+        return std::make_unique<Circle>();
+    });
 
     std::unique_ptr<IShape> shape = IShapeFactory::getInstance();
     shape->draw();
